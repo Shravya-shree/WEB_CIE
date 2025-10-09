@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #b2c1ca;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .calculator {
+      background-color: #fff;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 300px;
+    }
+
+    .calculator h2 {
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 16px;
+    }
+
+    .buttons button {
+      margin: 5px;
+      padding: 10px 15px;
+      font-size: 14px;
+      cursor: pointer;
+      border: none;
+      background-color: #bc2b7d;
+      color: white;
+      border-radius: 5px;
+    }
+
+    .buttons button:hover {
+      background-color: #0056b3;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <h1>Shravyashree-4MW23CS149</h1>
+    <h2>Simple Calculator</h2>
+    <input type="number" id="num1" placeholder="Enter first number">
+    <input type="number" id="num2" placeholder="Enter second number">
+    
+    <div class="buttons">
+      <button onclick="calculate('sum')">Sum</button>
+      <button onclick="calculate('product')">Product</button>
+      <button onclick="calculate('difference')">Difference</button>
+      <button onclick="calculate('remainder')">Remainder</button>
+      <button onclick="calculate('quotient')">Quotient</button>
+      <button onclick="calculate('power')">Power</button>
+      <button onclick="calculate('sqrt')">Square Root</button>
+      <button onclick="calculate('square')">Square</button>
+    </div>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function calculate(operation) {
+      const num1 = parseFloat(document.getElementById("num1").value);
+      const num2 = parseFloat(document.getElementById("num2").value);
+      let result;
+
+      switch (operation) {
+        case 'sum':
+          result = num1 + num2;
+          break;
+        case 'product':
+          result = num1 * num2;
+          break;
+        case 'difference':
+          result = num1 - num2;
+          break;
+        case 'remainder':
+          result = num1 % num2;
+          break;
+        case 'quotient':
+          result = num1 / num2;
+          break;
+        case 'power':
+          result = Math.pow(num1, num2);
+          break;
+        case 'sqrt':
+          result = `√${num1} = ${Math.sqrt(num1).toFixed(2)}, √${num2} = ${Math.sqrt(num2).toFixed(2)}`;
+          break;
+        case 'square':
+          result = `${num1}² = ${Math.pow(num1, 2)}, ${num2}² = ${Math.pow(num2, 2)}`;
+          break;
+        default:
+          result = "Invalid operation";
+      }
+
+      document.getElementById("result").innerText = `Result: ${result}`;
+    }
+  </script>
+</body>
+</html>
